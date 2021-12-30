@@ -13,6 +13,11 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 from pccommon.config import CommonConfig
 
 
+class ServiceName:
+    STAC = "stac"
+    TILER = "tiler"
+
+
 # Custom filter that outputs custom_dimensions, only if present
 class OptionalCustomDimensionsFilter(logging.Formatter):
     def __init__(
@@ -75,3 +80,7 @@ def init_logging(service_name: str) -> None:
 def request_to_path(request: Request) -> str:
     parsed_url = urlparse(f"{request.url}")
     return parsed_url.path
+
+
+def my_thing() -> None:
+    pass
